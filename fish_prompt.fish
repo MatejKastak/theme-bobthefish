@@ -851,6 +851,15 @@ function __bobthefish_prompt_virtualgo -S -d 'Display current Go virtual environ
     set_color normal
 end
 
+function __bobthefish_prompt_ranger -S -d 'Display current ranger'
+    [ "$theme_display_ranger" = 'no' -o -z "$RANGER_LEVEL" ]
+    and return
+
+    __bobthefish_start_segment $color_virtualgo
+    echo -ns $go_glyph ' ' (basename "$VIRTUALGO") ' '
+    set_color normal
+end
+
 function __bobthefish_prompt_desk -S -d 'Display current desk environment'
     [ "$theme_display_desk" = 'no' -o -z "$DESK_ENV" ]
     and return
